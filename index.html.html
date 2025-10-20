@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyprus Prosperity Collective | Tochni Workshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* New Palette: Rich Bronze/Gold Primary Accent and Deep Teal Secondary */
+        :root {
+            --color-primary: #A97B30; /* Rich Bronze/Gold - Main Accent for Pop and Value */
+            --color-secondary: #386665; /* Deep Teal/Blue - Secondary Sophistication */
+            --color-background: #FAF8F6; /* Warm Off-White */
+            --color-text: #2C3E50; /* Deep Slate (Ensures high contrast) */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            min-height: 100vh;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-text);
+        }
+        .text-primary { color: var(--color-primary); }
+        .bg-primary { background-color: var(--color-primary); }
+        .text-secondary { color: var(--color-secondary); }
+        .bg-secondary { background-color: var(--color-secondary); }
+        
+        /* Button Styling for New Primary Color */
+        .btn-primary {
+            background-color: var(--color-primary);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #916928; /* Slightly darker gold on hover */
+            transform: translateY(-2px);
+        }
+        
+        /* Styling for Secondary CTA button */
+        .bg-secondary:hover {
+            background-color: #2D5251; /* Darken teal on hover */
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center">
+
+    <!-- Header & Navigation -->
+    <header class="w-full bg-white/95 shadow-md sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider text-primary">
+                Prosperity Collective
+            </h1>
+            <!-- Secondary button now uses Deep Teal color for a contrasting accent -->
+            <a href="#register" class="text-sm font-semibold text-white px-4 py-2 rounded-full bg-secondary hover:bg-secondary/80 transition duration-300">
+                Reserve Spot
+            </a>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl px-4 md:px-8 py-12 space-y-16">
+        
+        <!-- HERO SECTION -->
+        <section class="text-center space-y-6">
+            <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
+                The Cyprus <span class="text-primary">Prosperity Collective</span>
+            </h2>
+            <!-- Subheading is short and punchy -->
+            <p class="text-2xl font-light text-secondary">
+                <span class="text-primary font-medium">The Wealth Blueprint</span> for Women in Property & Business
+            </p>
+
+            <!-- Location & Time block (High-contrast for visibility) -->
+            <div class="w-full md:w-auto mx-auto bg-secondary p-6 rounded-xl shadow-xl border-b-4 border-primary/70">
+                <p class="text-2xl font-bold text-white leading-snug">
+                    <span class="block text-primary text-xl font-medium mb-1">When:</span>
+                    <!-- DATE CORRECTION HERE: Changed from Friday to SATURDAY -->
+                    <span class="font-extrabold">Saturday, 25th October</span> | 11:00 AM
+                </p>
+                <!-- LOCATION DETAILS: Focuses on logistics first -->
+                <p class="text-lg font-light text-white/90 mt-3">
+                    <span class="block text-primary text-xl font-medium mb-1">Where:</span>
+                    <!-- LOGISTICS IS NOW THE MAIN LINE -->
+                    <span class="font-bold text-xl text-white">1-hour Workshop + Networking & Optional Lunch</span>
+                    
+                    <!-- LOCATION IS NOW THE SECONDARY LINE -->
+                    <span class="block text-sm mt-1 opacity-80">Location: Tochni Village, Cyprus</span>
+                    
+                    <!-- PIN NOTE REMAINS PROMINENT -->
+                    <span class="block text-sm mt-1 font-normal opacity-90 text-yellow-300 font-semibold">
+                        (Exact location and Google Pin sent via email upon reservation confirmation.)
+                    </span>
+                </p>
+            </div>
+            
+            <p class="mt-8 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+                Join a selective, <strong class="font-extrabold text-primary">interactive gathering</strong> of local businesswomen to connect, share powerful insights, and explore tangible <strong class="font-extrabold text-primary">collaboration opportunities</strong> while strategically mapping out your future financial success.
+            </p>
+            <!-- Main CTA button uses the Rich Bronze/Gold Primary Color -->
+            <a href="#register" class="mt-6 inline-block btn-primary text-white font-bold text-lg px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                Secure Your Seat & Future &rarr;
+            </a>
+        </section>
+
+        <!-- TOCHNI VILLAGE VISUAL -->
+        <section class="mt-12">
+            <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <!-- PHOTO 1: Tochni Village Image URL (using raw link) -->
+                <img id="tochni-image" 
+                     src="https://raw.githubusercontent.com/martabestcyprusproperties-art/EventTochni/main/Copy%20of%20IMG_7481.jpg" 
+                     alt="Scenic view of Tochni Village, the event location" 
+                     class="w-full h-auto object-cover" 
+                     style="max-height: 400px;"
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x400/386665/ffffff?text=Tochni+Village+View'">
+            </div>
+        </section>
+
+        <!-- WHY YOU CAN'T MISS THIS SECTION (Benefits) -->
+        <section class="bg-white p-8 rounded-2xl shadow-xl">
+            <h2 class="text-4xl font-bold text-center mb-10 text-secondary">
+                Why This Is Your Crucial Mid-Year Check-In
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Benefit 1: Strategic Clarity -->
+                <div class="p-6 rounded-xl border border-gray-100 shadow-md">
+                    <h3 class="text-2xl font-semibold mb-2 flex items-center">
+                        <!-- Bullets use Primary Gold color for visual emphasis -->
+                        <span class="text-primary mr-3 text-3xl">&bull;</span> Future-Proof Your Investments
+                    </h3>
+                    <p class="text-gray-600">
+                        Discuss expert-led <strong class="font-extrabold text-primary">2026 Real Estate & Business Trends</strong> impacting the Cyprus market. Gain the foresight needed to pivot your strategy now and maximize returns next year.
+                    </p>
+                </div>
+                <!-- Benefit 2: Mindset Work -->
+                <div class="p-6 rounded-xl border border-gray-100 shadow-md">
+                    <h3 class="text-2xl font-semibold mb-2 flex items-center">
+                        <span class="text-primary mr-3 text-3xl">&bull;</span> Unblock Your Abundance
+                    </h3>
+                    <p class="text-gray-600">
+                        Participate in a powerful <strong class="font-extrabold text-primary">Visualization Session</strong> guided by a certified Abundance Coach (that's you!) to identify and dissolve the limiting beliefs holding back your dream business prosperity and personal wealth.
+                    </p>
+                </div>
+                <!-- Benefit 3: Connection -->
+                <div class="p-6 rounded-xl border border-gray-100 shadow-md">
+                    <h3 class="text-2xl font-semibold mb-2 flex items-center">
+                        <span class="text-primary mr-3 text-3xl">&bull;</span> Local Power Network & Collaboration
+                    </h3>
+                    <p class="text-gray-600">
+                        Connect with like-minded, ambitious women in your local area. Build genuine relationships and find the <strong class="font-extrabold text-primary">support and collaboration</strong> necessary to elevate your business.
+                    </p>
+                </div>
+                <!-- Benefit 4: The Experience -->
+                <div class="p-6 rounded-xl border border-gray-100 shadow-md">
+                    <h3 class="text-2xl font-semibold mb-2 flex items-center">
+                        <span class="text-primary mr-3 text-3xl">&bull;</span> Strategic Clarity & Celebration
+                    </h3>
+                    <p class="text-gray-600">
+                        Engage in <strong class="font-extrabold text-primary">structured, high-value networking</strong> following the workshop, with the flexible option to continue connections and collaboration over <strong class="font-extrabold text-primary">Lunch at the authentic Tochni Tavern</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & PROOF SECTION (Updated with specific content) -->
+        <section class="mt-12">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <h3 class="text-4xl font-bold text-center text-primary leading-tight">
+                    <!-- Updated heading to reflect continued opportunity -->
+                    <span class="block text-secondary text-2xl font-semibold mb-1">Back By Popular Demand:</span>
+                    Feel the Prosperity Energy
+                </h3>
+                
+                <p class="text-center text-lg text-gray-600 font-medium">
+                    Due to the overwhelming positive feedback from our previous sessions, we are excited to offer this powerful workshop again. Experience the unique, tranquil environment of Tochni Village for deep reflection and valuable collaboration!
+                </p>
+
+                <!-- Key Takeaways from Previous Session -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-secondary/70">
+                    <h4 class="text-xl font-bold mb-3 text-secondary">Inspired by April's Success: Financial Wellness Workshop</h4>
+                    <ul class="space-y-2 text-gray-700 list-disc list-inside ml-4">
+                        <li><strong class="font-bold">Passive Income Blueprint:</strong> Participants gained an exact framework on <strong class="font-bold">how to build passive income streams</strong>, leading to immediate adjustments in their portfolio planning.</li>
+                        <li><strong class="font-bold">Financial Discipline:</strong> Attendees mastered proven techniques on <strong class="font-bold">how to create a sustainable saving plan</strong>, providing clear pathways to future investments.</li>
+                        <li><strong class="font-bold">Mindful Connections:</strong> The workshop successfully forged <strong class="font-bold">new connections</strong>, and the <strong class="font-bold">mindfulness</strong> segment was actively supported by a licensed <strong class="font-bold">psychologist</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <!-- Workshop Proof Image - CORRECTED SRC URL -->
+                    <img id="workshop-proof" 
+                         src="https://raw.githubusercontent.com/martabestcyprusproperties-art/EventTochni/main/I_AL5353Resized.jpg" 
+                         alt="Marta Tracz delivering an engaging workshop to attendees" 
+                         class="w-full h-auto object-cover rounded-xl"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x338/A97B30/ffffff?text=Workshop+Photo+Missing'">
+                </div>
+                <p class="text-center text-primary italic font-semibold pt-1">
+                    Dynamic, hands-on, and focused on tangible action. Join us for this powerful event in Tochni.
+                </p>
+            </div>
+        </section>
+        
+        <!-- HOST SECTION -->
+        <section class="text-center pt-8">
+            <h2 class="text-4xl font-bold mb-4 text-secondary">Meet Your Host</h2>
+            <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg border-b-4 border-primary">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 overflow-hidden border-4 border-primary">
+                    <!-- PHOTO 2: Host Brand Photo URL (using raw link) -->
+                    <img id="marta-image"
+                         src="https://raw.githubusercontent.com/martabestcyprusproperties-art/EventTochni/main/I_AL5424.jpg" 
+                         alt="Host Marta Tracz" 
+                         class="w-full h-full object-cover"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/386665/ffffff?text=Marta+Tracz'">
+                </div>
+                <h3 class="text-3xl font-semibold text-primary">Marta Tracz</h3>
+                <p class="text-lg font-medium text-gray-700">Licensed Real Estate Agent, Investor & Certified Abundance Coach</p>
+                <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                    Bringing together a decade of experience in the Cyprus real estate market with powerful manifestation and business coaching. This workshop is the synergy of strategy and soul—a unique blend essential for truly unlimited success.
+                </p>
+                <p class="mt-4">
+                    <a href="https://www.linkedin.com/in/marta-tracz/" target="_blank" class="text-secondary hover:text-primary font-semibold transition duration-300 text-sm flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V9.359c0-.214.012-.428.027-.577.106-.477.773-.974 1.687-.974 1.196 0 1.687.75 1.687 1.868v4.364h3.701V9.359c0-1.898-1.01-2.775-2.528-2.775-1.16 0-1.748.647-2.043 1.139h-.022V6.637H4.943V13.393h.001zm-2.82-7.149c.895 0 1.62-.733 1.62-1.637 0-.905-.725-1.637-1.62-1.637-.894 0-1.62.732-1.62 1.637 0 .904.726 1.637 1.62 1.637zm-.001-3.418h3.24V13.393H2.122V2.826z"/>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- REGISTRATION SECTION -->
+        <section id="register" class="pt-8">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-primary/70">
+                <h2 class="text-4xl font-bold text-center mb-2 text-secondary">Reserve Your Seat</h2>
+                <p class="text-center text-lg text-gray-600 mb-8">
+                    Spaces are strictly limited to ensure quality networking. Register now to secure your place.
+                </p>
+
+                <form id="registration-form" class="space-y-6 max-w-md mx-auto">
+                    <!-- Event Fee (Example Placeholder) -->
+                    <div class="text-center p-3 bg-primary/10 rounded-lg font-bold text-lg text-primary">
+                        Investment: €10 (Includes Workshop, Materials, Water, Coffee & Tea)
+                    </div>
+
+                    <div>
+                        <label for="reg-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="reg-name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300">
+                    </div>
+                    <div>
+                        <label for="reg-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="reg-email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300">
+                    </div>
+                    <div>
+                        <label for="reg-phone" class="block text-sm font-medium text-gray-700">Contact Number</label>
+                        <input type="tel" id="reg-phone" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300">
+                    </div>
+                    <div>
+                        <label for="reg-interest" class="block text-sm font-medium text-gray-700">Current Business/Investment Interest (Optional)</label>
+                        <textarea id="reg-interest" rows="2" placeholder="e.g., Short-term rentals, local boutique, finding networking support..." class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary transition duration-300"></textarea>
+                    </div>
+
+                    <button type="submit" id="register-button" class="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-lg text-lg font-bold text-white btn-primary">
+                        <span id="register-text">I'm Ready to Elevate!</span>
+                        <div id="register-loading" class="loading-spinner hidden ml-3"></div>
+                    </button>
+                    <p id="reg-submission-error" class="text-red-500 text-sm mt-2 hidden text-center">Registration failed. Please try again or contact us directly.</p>
+                </form>
+
+                <!-- Success Message Container (Simple version for a small form) -->
+                <div id="reg-success-message" class="hidden text-center mt-6 p-4 bg-green-100 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-700">Registration Confirmed!</h3>
+                    <p class="text-green-600">Your spot is reserved. We'll be in touch soon with payment details and final event logistics.</p>
+                    <p class="text-green-600 mt-2 font-semibold">Thank you for registering for the Saturday, 25th October event!</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center pt-8 text-sm text-gray-500">
+            Hosted by Marta Tracz. Contact: +357 97760435 | For local Cyprus businesswomen & property investors.
+        </footer>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { 
+            getAuth, 
+            signInAnonymously, 
+            signInWithCustomToken, 
+            onAuthStateChanged 
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc,
+            setLogLevel 
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        setLogLevel('Debug');
+
+        // --- GLOBAL FIREBASE VARIABLES ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        let firebaseConfig = {};
+        if (typeof __firebase_config !== 'undefined') {
+            try {
+                firebaseConfig = JSON.parse(__firebase_config);
+            } catch (e) {
+                console.error("Error parsing __firebase_config:", e);
+            }
+        }
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        
+        let db;
+        let auth;
+        let userId = 'anonymous';
+        let isAuthReady = false;
+
+        // --- FIREBASE INITIALIZATION AND AUTHENTICATION ---
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            
+            // Sign-in logic
+            const initializeAuth = async () => {
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                        console.log("Firebase signed in with custom token.");
+                    } else {
+                        await signInAnonymously(auth);
+                        console.log("Firebase signed in anonymously.");
+                    }
+                } catch (error) {
+                    console.error("Authentication failed:", error);
+                    // Fallback to anonymous if custom token fails
+                    try { await signInAnonymously(auth); } catch(e) { console.error("Anonymous fallback failed:", e); }
+                }
+            };
+            initializeAuth();
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    userId = user.uid;
+                } else {
+                    // Sign in anonymously if no user is found (ensuring a userId exists for Firestore access)
+                    if (!auth.currentUser) {
+                        signInAnonymously(auth).then(cred => {
+                            userId = cred.user.uid;
+                            isAuthReady = true;
+                            console.log("Anonymous user ID:", userId);
+                        });
+                    } else {
+                         userId = auth.currentUser.uid;
+                         isAuthReady = true;
+                    }
+                }
+                isAuthReady = true; // Auth process completed
+                console.log("Auth state initialized. Current User ID:", userId);
+            });
+            
+        } catch(e) {
+            console.error("Firebase Initialization Error. Forms will not submit data.", e);
+        }
+
+        // --- UTILITY FUNCTIONS ---
+        
+        function toggleLoading(buttonId, isLoading, defaultText) {
+            const button = document.getElementById(buttonId);
+            const textSpan = document.getElementById(buttonId.replace('-button', '-text'));
+            const loadingSpinner = document.getElementById(buttonId.replace('-button', '-loading'));
+
+            button.disabled = isLoading;
+            if (isLoading) {
+                textSpan.textContent = 'Registering...';
+                loadingSpinner.classList.remove('hidden');
+                button.classList.add('opacity-70', 'cursor-not-allowed');
+            } else {
+                textSpan.textContent = defaultText;
+                loadingSpinner.classList.add('hidden');
+                button.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        }
+
+        function showSuccess(formId, successId) {
+            document.getElementById(formId).classList.add('hidden');
+            document.getElementById(successId).classList.remove('hidden');
+        }
+
+        // --- FIRESTORE SUBMISSION FUNCTION ---
+
+        async function saveWorkshopRegistration(data) {
+            if (!db || !isAuthReady) {
+                console.error("Firestore not ready or authenticated.");
+                document.getElementById('reg-submission-error').textContent = "Server connection error. Please refresh and try again.";
+                return false;
+            }
+
+            // Path: /artifacts/{appId}/public/data/workshop_registrations (Public collection for event signups)
+            const registrationsRef = collection(db, 'artifacts', appId, 'public', 'data', 'workshop_registrations');
+            
+            try {
+                // Ensure userId is defined before saving
+                const finalUserId = auth.currentUser?.uid || userId;
+
+                await addDoc(registrationsRef, {
+                    ...data,
+                    userId: finalUserId,
+                    timestamp: new Date().toISOString(),
+                    event: 'Prosperity Collective Tochni - Oct 25'
+                });
+                console.log("Registration successfully saved to Firestore.");
+                return true;
+            } catch (e) {
+                console.error("Error saving registration:", e);
+                document.getElementById('reg-submission-error').textContent = "Registration failed: " + e.message;
+                return false;
+            }
+        }
+        
+        // --- FORM EVENT LISTENER ---
+
+        document.getElementById('registration-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            document.getElementById('reg-submission-error').classList.add('hidden');
+            
+            if (!isAuthReady) {
+                document.getElementById('reg-submission-error').textContent = "Please wait a moment while the server connection establishes.";
+                document.getElementById('reg-submission-error').classList.remove('hidden');
+                return;
+            }
+
+            const name = document.getElementById('reg-name').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const phone = document.getElementById('reg-phone').value.trim();
+            const interest = document.getElementById('reg-interest').value.trim();
+            
+            if (!name || !email || !phone) return;
+
+            const registrationData = { name, email, phone, interest };
+
+            toggleLoading('register-button', true, "I'm Ready to Elevate!");
+            const success = await saveWorkshopRegistration(registrationData);
+            toggleLoading('register-button', false, "I'm Ready to Elevate!");
+
+            if (success) {
+                showSuccess('registration-form', 'reg-success-message');
+            } else {
+                document.getElementById('reg-submission-error').classList.remove('hidden');
+            }
+        });
+        
+    </script>
+</body>
+</html>
